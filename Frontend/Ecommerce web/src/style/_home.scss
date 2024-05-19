@@ -1,0 +1,90 @@
+$color1: white;
+$color2: rgb(46,46,46);
+$color3: rgb(0,104,136);
+
+
+.home{
+    padding: 0.5rem 5%;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 4rem);
+    width: 100%;
+    >section{
+        width: 100%;
+        height: 18.5rem;
+        margin: auto;
+        background: url("../assets/adminimages/product1.jpg") no-repeat center / cover;
+    }
+    >h1{
+       @include flex(row, space-between,center,1.2rem);
+       margin-top: 0.7rem;
+       margin-bottom: 1rem;
+       &:first-of-type{
+           color: rgb(27, 27, 27);
+           font-weight: 400;
+           letter-spacing: 2px;
+       }
+       >a{
+            color:  rgb(0, 16, 158);
+           font-weight: 400;
+           letter-spacing: 2px;
+           font-size: 1.2rem;
+           margin-right: 0.5rem;
+       }
+    }
+    >main{
+        width: 100%;
+        flex: 1;
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+}
+.productcard{
+    width: 18.75rem;
+    height: 22rem;
+    padding: 1rem;
+    position: relative;
+    flex: none;
+    @include flex(column,flex-start,center,4px);
+    background-color: white;
+    img{
+        width: calc(18.75rem - 3rem);
+        object-fit: cover;
+        margin: 1rem;
+    }
+    >span{
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+    >div{
+        opacity: 0;
+        position: absolute;
+        @include Square(100%);
+        top: 0;
+        left: 0;
+        background-color: #0000006b;
+        @include flex;
+        &:hover{
+            opacity: 1;
+        }
+        >button{
+            @include flex;
+            @include Square(3rem);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background-color: $color3;
+            color: $color1;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            &:hover{
+                rotate: 20deg;
+
+            }
+        }
+    }
+}

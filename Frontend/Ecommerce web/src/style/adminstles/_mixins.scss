@@ -1,0 +1,42 @@
+
+
+@mixin heading ($spacing:3px, $weight:300px, $case: uppercase){
+  letter-spacing: $spacing;
+  font-weight: $weight;
+  text-transform: $case;
+}
+
+@mixin flex($dir:row, $justifycontent: center, $alignitems: center, $gap: 1rem){
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justifycontent;
+    align-items: $alignitems;
+    gap: $gap;
+  }
+
+  @mixin grid( $col: 1fr, $gap:1rem, $row:unset){
+    display: grid;
+    grid-template-columns: $col;
+    grid-template-rows: $row;
+    gap: $gap;
+  }
+
+  @mixin inpStyle( $w: 100%, $pad: 1rem, $bg: inherit, $border: none){
+    width: $w;
+    padding: $pad;
+    background-color: $bg;
+    border: $border;
+    outline: none;
+  }
+
+ @mixin Poscenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  @mixin Square($s:1rem){
+    height: $s;
+    width: $s;
+  }
