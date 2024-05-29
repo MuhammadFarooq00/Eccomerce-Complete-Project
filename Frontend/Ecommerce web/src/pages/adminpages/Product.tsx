@@ -1,4 +1,4 @@
-import { ReactElement, useCallback, useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import Sidebar from "../../components/admincomponents/Sidebar";
 import TableHoc from "../../components/admincomponents/TableHoc";
 import "../../style/adminstles/app.scss";
@@ -93,7 +93,10 @@ const Product = () => {
   // {user?._id}
   console.log(data?.message[0])
   const [rows,setrows] = useState<datatype[]>([]);
-  const table = useCallback(()=>TableHoc<datatype>(columns, rows, "dashboardproductbox", "Products",rows.length>6)() ,[rows]);
+
+  // const table = useCallback(()=>TableHoc<datatype>(columns, rows, "dashboardproductbox", "Products",rows.length>6)() ,[rows]);
+  const table = <TableHoc<datatype> columns={columns} data={rows} containerclassname="dashboardproductbox" heading="Products"/>
+
   if(isError) toast.error((error as CostomError).data.message)
   useEffect(()=>{
   console.log(data?.message)
@@ -109,7 +112,7 @@ const Product = () => {
     <>
       <div className="admincontainer">
         <Sidebar />
-        <main>{table()}</main>
+        <main>{table}</main>
         <Link to='/admin/products/new' className="createproductbtn">
           <FaPlus/>
         </Link>

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { ReactElement, useCallback, useEffect, useState } from "react"
+import { ReactElement, useEffect, useState } from "react"
 import Sidebar from "../../components/admincomponents/Sidebar"
 import "../../style/adminstles/app.scss"
 // import { Link } from "react-router-dom"
@@ -115,13 +115,13 @@ const Customer = () => {
     })));
   },[data])
 
-  const table = useCallback( ()=>TableHoc<datatype>(columns,rows,"dashboardproductbox","Customers",true)(),[rows])
+  const table = <TableHoc<datatype> columns={columns} data={rows} containerclassname="dashboardproductbox" heading="Customers"/>
     return (
       <>
         <div className="admincontainer">
       <Sidebar/>
       <main>
-        {table()}
+        {table}
       </main>
       </div>
       </>
